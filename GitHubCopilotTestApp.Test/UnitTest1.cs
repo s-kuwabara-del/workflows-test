@@ -47,7 +47,7 @@ namespace GitHubCopilotTestApp.Test
             {
                 var type = target.GetType();
                 var methodInfo = type.GetMethod("IsPrime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-                return methodInfo?.Invoke(target, new object[] { n }) is bool;
+                return (bool)methodInfo?.Invoke(target, new object[] { n });
             }
         }
     }
