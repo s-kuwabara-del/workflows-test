@@ -30,12 +30,8 @@ namespace GitHubCopilotTestApp
             var number = int.Parse(input);
             Console.WriteLine("1から" + number + "までの素数を表示します。");
 
-            var test = number / 0;
-            
             var primes = new HashSet<int>(number);
             var sw = new Stopwatch();
-            var sb = new StringBuilder();
-
             sw.Start();
 
             Parallel.For(1, number, i =>
