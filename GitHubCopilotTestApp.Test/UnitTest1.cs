@@ -12,8 +12,7 @@ namespace GitHubCopilotTestApp.Test
         [TestFixture]
         public class ProgramTest
         {
-            Program target = new Program();
-
+            readonly Program target = new Program();
 
             [TestCase(2)]
             [TestCase(3)]
