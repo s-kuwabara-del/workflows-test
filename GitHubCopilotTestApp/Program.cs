@@ -9,10 +9,10 @@ namespace GitHubCopilotTestApp
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static void Main(string[] _)
         {
             // 同期用オブジェクト
-            object lockObject = new object();
+            object lockObject = new();
 
             // See https://aka.ms/new-console-template for more information
             Console.WriteLine("Hello, World!");

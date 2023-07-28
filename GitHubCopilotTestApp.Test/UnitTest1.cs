@@ -12,7 +12,7 @@ namespace GitHubCopilotTestApp.Test
         [TestFixture]
         public class ProgramTest
         {
-            readonly Program target = new Program();
+            readonly Program target = new ();
 
             [TestCase(2)]
             [TestCase(3)]
@@ -24,13 +24,8 @@ namespace GitHubCopilotTestApp.Test
             [TestCase(9999991)]
             public void IsPrimeTest(int n)
             {
-                var type = target.GetType();
-                var methodInfo = type.GetMethod("IsPrime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-                if (methodInfo != null )
-                {
-                    var result = (bool)methodInfo.Invoke(target, new object[] { n });
-                    Assert.IsTrue(result);
-                }
+                var result = IsPrime(n);
+                Assert.That(result, Is.True);
             }
 
             [TestCase(-1)]
@@ -44,15 +39,16 @@ namespace GitHubCopilotTestApp.Test
             [TestCase(9999999)]
             public void IsNotPrimeTest(int n)
             {
-                var type = target.GetType();
-                var methodInfo = type.GetMethod("IsPrime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
-                if (methodInfo != null)
-                {
-                    var result = (bool)methodInfo.Invoke(target, new object[] { n });
-                    Assert.IsFalse(result);
-                }
+                var result = IsPrime(n);
+                Assert.That(result, Is.False);
             }
 
+            private bool IsPrime(int n)
+            {
+                var type = target.GetType();
+                var methodInfo = type.GetMethod("IsPrime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
+                return methodInfo?.Invoke(target, new object[] { n }) is bool;
+            }
         }
     }
 }
