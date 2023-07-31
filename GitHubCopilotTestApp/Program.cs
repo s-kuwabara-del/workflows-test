@@ -67,15 +67,18 @@ namespace GitHubCopilotTestApp
             // number が素数かどうかを判定する
             if (number < 2)
             {
+                // 2以下はもちろん素数ではありません
                 return false;
             }
             for (int i = 2; i * i <= number; i++)
             {
                 if (number % i == 0)
+                // 余りが0、つまり割り切れるならそれは素数じゃない
                 {
                     return false;
                 }
             }
+            // ここまで来たら、素数と認めてもいいだろう
             return true;
         }
     }
