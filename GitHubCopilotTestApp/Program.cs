@@ -7,8 +7,15 @@ using System.Runtime.CompilerServices;
 
 namespace GitHubCopilotTestApp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     internal class Program
     {
+        /// <summary>
+        /// メイン関数
+        /// </summary>
+        /// <param name="_"></param>
         private static void Main(string[] _)
         {
             // 同期用オブジェクト
@@ -49,6 +56,12 @@ namespace GitHubCopilotTestApp
             Console.WriteLine("処理時間: " + sw.ElapsedMilliseconds + "ms");
             Console.WriteLine(string.Join(" ", new SortedSet<int>(primes)));
         }
+
+        /// <summary>
+        /// 入力値が素数かどうかを返す
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         private static bool IsPrime(int number)
         {
             // number が素数かどうかを判定する
