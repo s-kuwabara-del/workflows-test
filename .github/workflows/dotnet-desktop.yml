@@ -85,3 +85,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
         
+    # 対象パスにあるファイルを GitHub にアップロードする
+    - name: Upload build as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ExecutionBinaly
+        path: ./GitHubCopilotTestApp\bin\Release\net6.0
