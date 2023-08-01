@@ -87,7 +87,7 @@ jobs:
         
     # Build 実行
     - name: Build the application
-      run: msbuild env:Solution_Name /p:Configuration=Release
+      run: msbuild $env:Solution_Name /p:Configuration=Release
       
     # Execute all unit tests in the solution
     - name: Execute unit tests
