@@ -72,8 +72,8 @@ jobs:
         dotnet-version: 6.0.x
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.0.2
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1.0.3
 
     # nuget のセットアップをする
     - name: Setup NuGet
@@ -95,7 +95,7 @@ jobs:
 
     # 対象パスにあるファイルを GitHub にアップロードする
     - name: Upload build as artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: Execution${{ matrix.configuration }}Binaly
         path: ./GitHubCopilotTestApp\bin\${{ matrix.configuration }}\net6.0
