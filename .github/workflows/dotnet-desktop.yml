@@ -79,15 +79,17 @@ jobs:
     - name: Execute unit tests
       run: dotnet test $env:Test_Project_Path
 
+    # 対象パスにあるファイルを GitHub にアップロードする
+    - name: Upload build as artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ExecutionBinaly
+        path: ./GitHubCopilotTestApp\bin\${{ matrix.configuration }}\net6.0
+        retention-days: 3
+        
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
         
-    # 対象パスにあるファイルを GitHub にアップロードする
-    - name: Upload build as artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ExecutionBinaly
-        path: ./GitHubCopilotTestApp\bin\Release\net6.0
