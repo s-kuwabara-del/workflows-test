@@ -73,7 +73,7 @@ jobs:
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: setup-msbuild
-      uses: microsoft/setup-msbuild@v1.0.3
+      uses: microsoft/setup-msbuild@v1.3.1
 
     # nuget のセットアップをする
     - name: Setup NuGet
@@ -100,6 +100,4 @@ jobs:
         name: Execution${{ matrix.configuration }}Binaly
         path: ./GitHubCopilotTestApp\bin\${{ matrix.configuration }}\net6.0
         retention-days: 3
-       
 
-        
