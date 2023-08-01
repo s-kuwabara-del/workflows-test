@@ -97,7 +97,7 @@ jobs:
     - name: Upload build as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: ExecutionBinaly
+        name: Execution${{ matrix.configuration }}Binaly
         path: ./GitHubCopilotTestApp\bin\${{ matrix.configuration }}\net6.0
         retention-days: 3
        
