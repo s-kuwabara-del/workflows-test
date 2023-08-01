@@ -74,6 +74,10 @@ jobs:
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
+
+    # Build 実行
+    - name: Build the application
+      run: msbuild $env:Solution_Name /p:Configuration=${{ matrix.configuration }}
       
     # Execute all unit tests in the solution
     - name: Execute unit tests
